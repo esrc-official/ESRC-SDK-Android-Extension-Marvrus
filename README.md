@@ -1,8 +1,8 @@
 # ESRC SDK for Android - Extension for Marvrus
 
-[![Platform](https://img.shields.io/badge/platform-android-orange.svg)](https://github.com/esrc-official/ESRC-SDK-Android)
-[![Languages](https://img.shields.io/badge/language-java-orange.svg)](https://github.com/esrc-official/ESRC-SDK-Android)
-[![Commercial License](https://img.shields.io/badge/license-Commercial-brightgreen.svg)](https://github.com/esrc-official/ESRC-SDK-Android/blob/master/LICENSE.md)
+[![Platform](https://img.shields.io/badge/platform-android-orange.svg)](https://github.com/esrc-official/ESRC-SDK-Android-Extension-Marvrus)
+[![Languages](https://img.shields.io/badge/language-java-orange.svg)](https://github.com/esrc-official/ESRC-SDK-Android-Extension-Marvrus)
+[![Commercial License](https://img.shields.io/badge/license-Commercial-brightgreen.svg)](https://github.com/esrc-official/ESRC-SDK-Android-Extension-Marvrus/blob/master/LICENSE.md)
 
 ## Table of contents
 
@@ -195,7 +195,7 @@ getSupportFragmentManager().beginTransaction()
 
 ### Step 3: Start the ESRC SDK
 
-Start the ESRC SDK to recognize your facial expression, heart response and emotion. To the `start()` method, pass the `ESRCType.Property` to select analysis modules and the `ESRC.ESRCHandler` to handle the results. You should implement the callback method of `ESRC.ESRCHandler` interface. So, you can receive the results of face, facial landmark, head pose, attention, facial expression, heart rate, heart rate variability and engagement. Please refer to **[sample app](https://github.com/esrc-official/ESRC-Android)**.
+Start the ESRC SDK to recognize your facial expression, heart response and emotion. To the `start()` method, pass the `MarvrusType.Property` to select analysis modules and the `Marvrus.MarvrusHandler` to handle the results. You should implement the callback method of `Marvrus.MarvrusHandler` interface. So, you can receive the results of face, facial landmark, head pose, attention, facial expression, heart rate, heart rate variability and engagement. Please refer to **[sample app](https://github.com/esrc-official/ESRC-Android)**.
 
 ```java
 Marvrus.start(
@@ -218,7 +218,7 @@ Marvrus.start(
                 // Handle error.
             }
             
-        // The face is detected.
+            // The face is detected.
             // Through the “face” parameter of the onDetectedFace() callback method,
             // you can get the location of the face from the result object
             // that ESRC Heart SDK has passed to the onDetectedFace().
@@ -244,7 +244,15 @@ Marvrus.start(
     });
 ```
 
-### (Optional) Step 4: Feed the ESRC SDK
+### (Optional) Step 4: Set the MEE property
+
+Set the ESRC SDK to recognize MEE index by passing the `MarvrusType.MEEProperty`.
+
+```java
+Marvrus.setMEEProperty(MEEProperty)
+```
+
+### (Optional) Step 5: Feed the ESRC SDK
 
 Feed `OpenCV Mat` on the ESRC SDK. To the `feed()` method, pass the `Mat` image received using a camera in real-time. Please do it at 10 fps. You can skip this step if you follow Step 2: Bind the ESRC Fragment.
 
@@ -252,7 +260,7 @@ Feed `OpenCV Mat` on the ESRC SDK. To the `feed()` method, pass the `Mat` image 
 Marvrus.feed(Mat);
 ```
 
-### Step 5: Stop the ESRC SDK
+### Step 6: Stop the ESRC SDK
 
 When your app is not use the camera or destroyed, stop the ESRC SDK.
 
