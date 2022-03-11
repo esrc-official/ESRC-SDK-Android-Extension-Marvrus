@@ -55,12 +55,6 @@ android {
 |Engagement Recognition| Recognize engagement level from balance of autonomic nervous system by heart rate variability analysis. |
 |MEE Index Recognition| Recognize MEE index from valence facial expression, heart rate and engagement. |
 
-### Try the sample app
-
-Our sample app has the core features of the ESRC SDK. Download the app from our [GitHub repository](https://github.com/esrc-official/ESRC-Android) to get an idea of what you can build with the actual SDK and start building in your project.
-
-> Note: The fastest way to see our ESRC SDK in action is to build your app on top of our sample app. Make sure to change the application ID of the sample app to your own.
-
 <br />
 
 ## Install ESRC SDK
