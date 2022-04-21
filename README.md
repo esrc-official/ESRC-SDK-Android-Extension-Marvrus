@@ -207,7 +207,7 @@ Marvrus.start(
         true),  // Whether recognize MEE index or not.
     new Marvrus.MarvrusHandler() {
         @Override
-        public void onRecognizedESRC(int id, ESRCType.Face face, ..., ESRCException e) {
+        public void onRecognizedESRC(int id, MarvrusType.Face face, ..., ESRCException e) {
             if (e != null) {
                 // Handle error.
             )
