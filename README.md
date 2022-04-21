@@ -1,4 +1,4 @@
-# ESRC SDK for Android - Extension for Marvrus
+# ESRC SDK Extension Marvrus for Android
 
 [![Platform](https://img.shields.io/badge/platform-android-orange.svg)](https://github.com/esrc-official/ESRC-SDK-Android-Extension-Marvrus)
 [![Languages](https://img.shields.io/badge/language-java-orange.svg)](https://github.com/esrc-official/ESRC-SDK-Android-Extension-Marvrus)
@@ -114,8 +114,8 @@ allprojects {
 
 ```groovy
 dependencies {
-    implementation name: 'esrc-sdk-2.4.4', ext: 'aar'
-    implementation name: 'esrc-sdk-extension-marvrus-2.4.4', ext: 'aar'
+    implementation name: 'esrc-sdk-2.4.6', ext: 'aar'
+    implementation name: 'esrc-sdk-extension-marvrus-2.4.6', ext: 'aar'
 }
 ```
 
@@ -204,37 +204,19 @@ Marvrus.start(
         true,  // Whether estimate remote hr or not. If enableFace is false, it is also automatically set to false.
         true,  // Whether analyze HRV not not. If enableFace or enableRemoteHR is false, it is also automatically set to false.
         true,  // Whether recognize engagement or not. If enableRemoteHR and enableHRV are false, it is also automatically set to false.
-        true);  // Whether recognize MEE index or not.
+        true),  // Whether recognize MEE index or not.
     new Marvrus.MarvrusHandler() {
         @Override
-        public void onDetectedFace(ESRCTYPE.Face face, ESRCException e) {
-            if(e != null) {
+        public void onRecognizedESRC(int id, ESRCType.Face face, ..., ESRCException e) {
+            if (e != null) {
                 // Handle error.
-            }
+            )
             
-            // The face is detected.
-            // Through the “face” parameter of the onDetectedFace() callback method,
-            // you can get the location of the face from the result object
-            // that ESRC Heart SDK has passed to the onDetectedFace().
-            …
+            // The ESRC results are recognized.
+            // Through the paraemters of the onRecognizedESRC() callback method,
+            // you can get the information of the face and heart response from the result object
+            // that ESRC SDK Extension Marvrus has passed to the onRecognizedESRC().
         }
-        
-        // Please implement other callback method of ESRC.ESRCHandler interface.
-        @Override public void onNotDetectedFace( … ) { … }
-        @Override public void onAnalyzedMeasureEnv( … ) { … }
-        @Override public void onDetectedFacialLandmark( … ) { … }
-        @Override public void onAnalyzedFacialActionUnit( … ) { … }
-        @Override public void onRecognizedBasicFacialExpression( … ) { … }
-        @Override public void onRecognizedValenceFacialExpression( … ) { … }
-        @Override public void onEstimatedHeadPose( … ) { … }
-        @Override public void onRecognizedAttention( … ) { … }
-        @Override public void didChangedProgressRatioOnRemoteHR( … ) { … }
-        @Override public void onEstimatedRemoteHR( … ) { … }
-        @Override public void didChangedProgressRatioOnHRV( … ) { … }
-        @Override public void onAnalyzedHRV( … ) { … }
-        @Override public void onRecognizedEngagement( … ) { … }
-        @Override public void onRecognizedMEEIndex( … ) { … }
-        @Override public void onRecognizedMEEJson( … ) { … }
     });
 ```
 
@@ -248,7 +230,7 @@ Marvrus.setMEEProperty(MEEProperty)
 
 ### (Optional) Step 5: Feed the ESRC SDK
 
-Feed `OpenCV Mat` on the ESRC SDK. To the `feed()` method, pass the `Mat` image received using a camera in real-time. Please do it at 10 fps. You can skip this step if you follow Step 2: Bind the ESRC Fragment.
+Feed `Mat` on the ESRC SDK. To the `feed()` method, pass the `Mat` image received using a camera in real-time. Please do it at 10 fps. You can skip this step if you follow Step 2: Bind the ESRC Fragment.
 
 ```java
 Marvrus.feed(Mat);
