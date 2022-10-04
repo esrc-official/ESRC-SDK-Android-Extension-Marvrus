@@ -12,3 +12,7 @@
  - Update version of ESRC SDK as 2.5.2.
  - Add verbose parameter for printing information about ESRC progressing in ESRCProperty class.
  - Add 'getDisplayRotation' and 'getImageRotation' functions in ESRC class.
+
+### 2.5.4 (October 04, 2022)
+ - Update version of ESRC SDK as 2.5.4.
+ - Improve facial action unit analysis.
