@@ -16,3 +16,6 @@
 ### 2.5.4 (October 04, 2022)
  - Update version of ESRC SDK as 2.5.4.
  - Improve facial action unit analysis.
+
+### 2.5.5 (October 12, 2022)
+ - Improve size correction of facial landmark detection.
